@@ -15,11 +15,11 @@ create new user with role agents_admin in your wazuh dashboard - user
 
 for steps below :
 
-change <user>:<password> with your new user password that you've just created above
+change user:password with your new user password that you've just created above
 
 change localhost with your_wazuh_manager_ip
 
-TOKEN=$(curl -u <user>:<password> -k -X GET "https://localhost:55000/security/user/authenticate?raw=true")
+TOKEN=$(curl -u user:password -k -X GET "https://localhost:55000/security/user/authenticate?raw=true")
 
 curl -k -X PUT "https://localhost:55000/agents/upgrade?agents_list=002,003&pretty=true" -H  "Authorization: Bearer $TOKEN"
 
