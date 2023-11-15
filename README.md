@@ -1,6 +1,7 @@
 # deploy this daemonset to kubernetes
 
 kubectl -n your_namespace apply -f wazuh-daemonset3.yml
+
 kubectl -n your_namespace get all
 
 ex : https://wazuh_dashboard_ip:8080/
