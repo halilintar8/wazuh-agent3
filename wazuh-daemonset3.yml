@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: wazuh-agent  
+  namespace: wazuh
+spec:
+  selector:
+    matchLabels:
+      app: wazuh-agent
+  template:
+    metadata:
+      labels:
+        app: wazuh-agent
+    spec:
+      containers:
+      - name: wazuh-agent        
+        image: halilintar8/wazuh-agent3:latest
+        env:
+        - name: WAZUH_MANAGER_IP          
+          value: "your_wazuh_manager_ip"
+        - name: WAZUH_MANAGER_PORT
+          value: "55000"  # Use the appropriate port
+        - name: WAZUH_REGISTRATION_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+      hostPID: true
