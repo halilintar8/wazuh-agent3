@@ -27,7 +27,7 @@ curl -k -X GET "https://localhost:55000/agents/upgrade_result?agents_list=002,00
 
 curl -k -X GET "https://localhost:55000/agents?agents_list=002,003&pretty=true&select=version" -H  "Authorization: Bearer $TOKEN"
 
-check your wazuh dashboard - agents, the 5 pods of daemonset wazuh agents version should have upgraded, in my case, wazuh agent version is 4.6.0
+check your wazuh dashboard - agents, the 5 pods of daemonset wazuh agents version should have upgraded, in my case, wazuh agent version is upgraded from 4.3.6 to 4.6.0
 
 source :
 
